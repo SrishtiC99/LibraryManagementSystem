@@ -62,6 +62,16 @@ app.post("/return", function(req, res){
   res.render("home", {bookData: books});
 })
 
+app.post("/delete", function(req, res){
+  var requestedBookName = req.body.bookName;
+  books.forEach((book, i) => {
+    if(book.bookName == requestedBookName){
+      books.splice(i, 1);
+    }
+  });
+  res.render("home", {bookData: books});
+})
+
 app.listen(3000, function(){
   console.log("server started on port 3000");
 })

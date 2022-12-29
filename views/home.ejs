@@ -23,7 +23,7 @@
     }
 </style>
   <body>
-    <h1>All books</h1>
+    <h1>All Books</h1>
     <table>
       <tr>
         <th>Book Name</th>
@@ -33,6 +33,7 @@
         <th>Status</th>
         <th>Issue Book</th>
         <th>Return Book</th>
+        <th>Delete</th>
       </tr>
       <%bookData.forEach(book=> {%>
         <tr>
@@ -53,10 +54,17 @@
               <button type="submit">Return</button>
             </form>
           </td>
+          <td>
+            <form action="/delete" method="post">
+              <input type="text" style="display:none;" name="bookName" value="<%= book.bookName %>">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
         </tr>
       <%})%>
     </table>
-    <form style="margin: 8px 0px 8px;" action="/" method="post">
+    <h2>Add Book</h2>
+    <form style="margin: 8px 0px;" action="/" method="post">
       <input type="text" name="bookName" placeholder="Book Name">
       <input type="text" name="bookAuthor" placeholder="Book Author">
       <input type="text" name="bookPages" placeholder="No of Pages">
