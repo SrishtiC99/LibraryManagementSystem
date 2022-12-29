@@ -26,6 +26,22 @@ app.get("/", function(req, res){
   res.render("home", {bookData: books});
 })
 
+app.post("/", function(req, res){
+  var inputBookName = req.body.bookName;
+  var inputBookAuthor = req.body.bookAuthor;
+  var inputBookPages = req.body.bookPages;
+  var inputBookPrice = req.body.bookPrice;
+
+  books.push({
+    bookName: inputBookName,
+    bookAuthor: inputBookAuthor,
+    bookPages: inputBookPages,
+    bookPrice: inputBookPrice,
+    bookState: "Available"
+  })
+  res.render("home", {bookData: books});
+})
+
 app.listen(3000, function(){
   console.log("server started on port 3000");
 })
