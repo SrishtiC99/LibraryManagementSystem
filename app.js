@@ -42,6 +42,16 @@ app.post("/", function(req, res){
   res.render("home", {bookData: books});
 })
 
+app.post("/issue", function(req, res){
+  var requestedBookName = req.body.bookName;
+  books.forEach((book, i) => {
+    if(book.bookName == requestedBookName){
+      book.bookState = "Issued";
+    }
+  });
+  res.render("home", {bookData: books});
+})
+
 app.listen(3000, function(){
   console.log("server started on port 3000");
 })
