@@ -4,7 +4,43 @@
     <meta charset="utf-8">
     <title>Library Managemet System</title>
   </head>
+  <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
   <body>
-    <h1><%= msg %></h1>
+    <h1>All books</h1>
+    <table>
+      <tr>
+        <th>Book Name</th>
+        <th>Book Author</th>
+        <th>No of Pages</th>
+        <th>Price</th>
+        <th>Status</th>
+      </tr>
+      <%bookData.forEach(book=> {%>
+        <tr>
+          <td><%=book.bookName%></td>
+          <td><%=book.bookAuthor%></td>
+          <td><%=book.bookPages%></td>
+          <td><%=book.bookPrice%></td>
+          <td><%=book.bookState%></td>
+        </tr>
+      <%})%>
+    </table>
   </body>
 </html>
