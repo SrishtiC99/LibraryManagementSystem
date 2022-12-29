@@ -32,6 +32,7 @@
         <th>Price</th>
         <th>Status</th>
         <th>Issue Book</th>
+        <th>Return Book</th>
       </tr>
       <%bookData.forEach(book=> {%>
         <tr>
@@ -44,6 +45,12 @@
             <form action="/issue" method="post">
               <input type="text" style="display:none;" name="bookName" value="<%= book.bookName %>">
               <button type="submit">Issue</button>
+            </form>
+          </td>
+          <td>
+            <form action="/return" method="post">
+              <input type="text" style="display:none;" name="bookName" value="<%= book.bookName %>">
+              <button type="submit">Return</button>
             </form>
           </td>
         </tr>
